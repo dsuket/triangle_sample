@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <section>
+      <ul class="item-list">
+        <li class="item active" data-item-id="1">
+          <div class="item_title">Sample1</div>
+          <div class="item_content">sample1 sample1 sample1</div>
+        </li>
+        <li class="item" data-item-id="2">
+          <div class="item_title">Sample2</div>
+          <div class="item_content">sample2 sample2 sample2</div>
+        </li>
+        <li class="item" data-item-id="3">
+          <div class="item_title">Sample3</div>
+          <div class="item_content">sample3 sample3 sample3</div>
+        </li>
+        <li class="item" data-item-id="4">
+          <div class="item_title">Sample4</div>
+          <div class="item_content">sample4 sample4 sample4</div>
+        </li>
+        <li class="item" data-item-id="5">
+          <div class="item_title">Sample5</div>
+          <div class="item_content">sample5 sample5 sample5</div>
+        </li>
+      </ul>
+      <div class="item-description">
+        <div class="item-description_content"></div>
+      </div>
+    </section>
+
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      const $items = $('.item');
+      const $itemDesp = $('.item-description_content');
+      $items.on('click', itemClickHandler);
+      function itemClickHandler() {
+        $items.removeClass('active');
+        const $this = $(this);
+        $this.addClass('active');
+        const $content = $this.find('.item_content')
+        const content = $content.text();
+        const background = $content.css('background');
+        $itemDesp.text(content).css({background});
+      }
+    </script>
+  </body>
+</html>
